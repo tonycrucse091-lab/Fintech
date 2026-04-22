@@ -20,41 +20,46 @@
      } 
  
     /* Sidebar */ 
-    .sidebar { 
-      width: 220px; 
-      background: #020617; 
-      height: 100vh; 
-      padding: 20px; 
-      position: sticky;
-      top: 0;
-    } 
-
-    .sidebar h2 { 
-      margin-bottom: 30px; 
-      color: #38bdf8; 
-    } 
-
-    .sidebar a { 
-      display: block; 
-      color: #94a3b8; 
-      margin: 15px 0; 
-      padding: 10px;
-      text-decoration: none; 
-      transition: 0.3s; 
-      border-radius: 6px;
-    } 
-
-    .sidebar a:hover, .sidebar a.active { 
-      color: #38bdf8; 
-      background: #1e293b;
-    } 
-
-    /* Main */ 
-    .main { 
-      flex: 1; 
-      padding: 20px; 
-      overflow-y: auto;
-    } 
+     .sidebar { 
+       width: 180px; 
+       background: #020617; 
+       height: 100vh; 
+       padding: 15px; 
+       position: sticky;
+       top: 0;
+       border-right: 1px solid #1e293b;
+     } 
+ 
+     .sidebar h2 { 
+       margin-bottom: 25px; 
+       color: #38bdf8; 
+       font-size: 20px;
+       text-align: center;
+     } 
+ 
+     .sidebar a { 
+       display: block; 
+       color: #94a3b8; 
+       margin: 10px 0; 
+       padding: 8px 12px;
+       text-decoration: none; 
+       transition: 0.3s; 
+       border-radius: 6px;
+       font-size: 14px;
+     } 
+ 
+     .sidebar a:hover, .sidebar a.active { 
+       color: #38bdf8; 
+       background: #1e293b;
+     } 
+ 
+     /* Main */ 
+     .main { 
+       flex: 1; 
+       padding: 25px; 
+       overflow-y: auto;
+       background: #0f172a;
+     } 
 
     .content-section {
       display: none;
@@ -156,6 +161,21 @@
     .location-details p {
       margin: 5px 0;
     }
+
+    .map-container {
+      margin-top: 15px;
+      width: 100%;
+      height: 250px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #38bdf8;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
  
    </style> 
  </head> 
@@ -209,34 +229,25 @@
       </div> 
 
       <!-- Location Information -->
-      <div class="section">
-        <h2>Location Details</h2>
-        <div class="card">
-          <h3>Registered Office</h3>
-          <div class="location-details">
-            <p><strong>Address:</strong> Taubenstraße 7-9, 10117 Berlin, Germany</p>
-            <p><strong>Latitude:</strong> 52.5135° N</p>
-            <p><strong>Longitude:</strong> 13.3888° E</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Database Schema -->
-      <div class="section">
-        <h2>System Database Schema</h2>
-        <div class="note">
-          Below is the SQL definition for the location tracking system used in this case study.
-        </div>
-        <div class="sql-code">
-          CREATE TABLE `location` (<br>
-          &nbsp;&nbsp;`id` INT AUTO_INCREMENT PRIMARY KEY,<br>
-          &nbsp;&nbsp;`address` VARCHAR(255),<br>
-          &nbsp;&nbsp;`latitude` DECIMAL(10, 8),<br>
-          &nbsp;&nbsp;`longitude` DECIMAL(11, 8),<br>
-          &nbsp;&nbsp;`created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
-          );
-        </div>
-      </div>
+       <div class="section">
+         <h2>Location Details</h2>
+         <div class="card">
+           <h3>Registered Office</h3>
+           <div class="location-details">
+             <p><strong>Address:</strong> Taubenstraße 7-9, 10117 Berlin, Germany</p>
+             <p><strong>Latitude:</strong> 52.5135° N</p>
+             <p><strong>Longitude:</strong> 13.3888° E</p>
+           </div>
+           <div class="map-container">
+             <iframe 
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.947234250284!2d13.38622511580663!3d52.5135000798124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c636f87537%3A0x6d64949a2a7a407a!2sTaubenstra%C3%9Fe%207-9%2C%2010117%20Berlin%2C%20Germany!5e0!3m2!1sen!2sus!4v1650630000000!5m2!1sen!2sus" 
+               allowfullscreen="" 
+               loading="lazy" 
+               referrerpolicy="no-referrer-when-downgrade">
+             </iframe>
+           </div>
+         </div>
+       </div>
 
       <!-- Notes --> 
       <div class="section"> 
