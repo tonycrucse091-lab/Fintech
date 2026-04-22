@@ -1,360 +1,241 @@
 <!DOCTYPE html> 
  <html lang="en"> 
  <head> 
-   <meta charset="UTF-8"> 
-   <title>Fintech Dashboard Case Study</title> 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <meta charset="UTF-8" /> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+ <title>Fintech Admin Dashboard</title> 
  
-   <style> 
-     * { 
-       margin: 0; 
-       padding: 0; 
-       box-sizing: border-box; 
-       font-family: "Segoe UI", sans-serif; 
-     } 
+ <style> 
+ body { 
+   margin: 0; 
+   font-family: Arial, sans-serif; 
+   background: radial-gradient(circle at top, #1a1f2e, #0b0f1a); 
+   color: #fff; 
+ } 
  
-     body { 
-       background: #0f172a; 
-       color: #e2e8f0; 
-       display: flex; 
-     } 
+ /* Layout */ 
+ .dashboard { 
+   display: grid; 
+   grid-template-columns: 260px 1fr; 
+   height: 100vh; 
+ } 
  
-    /* Sidebar */ 
-     .sidebar { 
-       width: 180px; 
-       background: #020617; 
-       height: 100vh; 
-       padding: 15px; 
-       position: sticky;
-       top: 0;
-       border-right: 1px solid #1e293b;
-     } 
+ /* Sidebar */ 
+ .sidebar { 
+   background: rgba(255,255,255,0.05); 
+   backdrop-filter: blur(12px); 
+   padding: 20px; 
+   border-right: 1px solid rgba(255,255,255,0.1); 
+ } 
  
-     .sidebar h2 { 
-       margin-bottom: 25px; 
-       color: #38bdf8; 
-       font-size: 20px;
-       text-align: center;
-     } 
+ .sidebar h2 { 
+   font-size: 18px; 
+   margin-bottom: 30px; 
+ } 
  
-     .sidebar a { 
-       display: block; 
-       color: #94a3b8; 
-       margin: 10px 0; 
-       padding: 8px 12px;
-       text-decoration: none; 
-       transition: 0.3s; 
-       border-radius: 6px;
-       font-size: 14px;
-     } 
+ .nav-item { 
+   padding: 12px; 
+   margin-bottom: 10px; 
+   border-radius: 10px; 
+   background: rgba(255,255,255,0.05); 
+   cursor: pointer; 
+ } 
  
-     .sidebar a:hover, .sidebar a.active { 
-       color: #38bdf8; 
-       background: #1e293b;
-     } 
+ /* Main */ 
+ .main { 
+   padding: 20px; 
+ } 
  
-     /* Main */ 
-     .main { 
-       flex: 1; 
-       padding: 25px; 
-       overflow-y: auto;
-       background: #0f172a;
-     } 
-
-    .content-section {
-      display: none;
-    }
-
-    .content-section.active {
-      display: block;
-    }
-
-    .header { 
-      margin-bottom: 20px; 
-    } 
-
-    .header h1 { 
-      font-size: 24px; 
-    } 
-
-    /* Cards */ 
-    .cards { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 20px; 
-    } 
-
-    .card { 
-      background: #1e293b; 
-      padding: 20px; 
-      border-radius: 12px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3); 
-    } 
-
-    .card h3 { 
-      margin-bottom: 10px; 
-      color: #38bdf8; 
-    } 
-
-    .amount { 
-      font-size: 22px; 
-      font-weight: bold; 
-    } 
-
-    /* Status */ 
-    .status { 
-      padding: 5px 10px; 
-      border-radius: 6px; 
-      display: inline-block; 
-      margin-top: 10px; 
-      font-size: 12px; 
-    } 
-
-    .success { 
-      background: #064e3b; 
-      color: #34d399; 
-    } 
-
-    .warning { 
-      background: #78350f; 
-      color: #fbbf24; 
-    } 
-
-    .danger { 
-      background: #7f1d1d; 
-      color: #f87171; 
-    } 
-
-    /* Section */ 
-    .section { 
-      margin-top: 30px; 
-    } 
-
-    .section h2 { 
-      margin-bottom: 15px; 
-    } 
-
-    .note { 
-      background: #020617; 
-      padding: 15px; 
-      border-left: 4px solid #38bdf8; 
-      font-size: 14px; 
-      color: #94a3b8; 
-      margin-bottom: 10px;
-    } 
-
-    .sql-code {
-      background: #020617;
-      padding: 15px;
-      border-radius: 8px;
-      font-family: 'Courier New', Courier, monospace;
-      color: #10b981;
-      font-size: 14px;
-      overflow-x: auto;
-    }
-
-    .location-details {
-      margin-top: 10px;
-      font-size: 15px;
-    }
-
-    .sql-code {
-      background: #020617;
-      padding: 15px;
-      border-radius: 8px;
-      font-family: 'Courier New', Courier, monospace;
-      color: #38bdf8;
-      font-size: 13px;
-      overflow-x: auto;
-      border: 1px solid #1e293b;
-      margin-top: 10px;
-    }
-
-    .explanation {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #94a3b8;
-      font-style: italic;
-    }
-
-    .map-container {
-      margin-top: 15px;
-      width: 100%;
-      height: 250px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #38bdf8;
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+ /* Top cards */ 
+ .cards { 
+   display: grid; 
+   grid-template-columns: repeat(3, 1fr); 
+   gap: 15px; 
+ } 
  
-   </style> 
+ .card { 
+   background: rgba(255,255,255,0.06); 
+   backdrop-filter: blur(14px); 
+   border-radius: 16px; 
+   padding: 15px; 
+   border: 1px solid rgba(255,255,255,0.1); 
+ } 
+ 
+ /* Status widget */ 
+ .status-box { 
+   margin-top: 20px; 
+   background: rgba(255,255,255,0.06); 
+   backdrop-filter: blur(14px); 
+   padding: 20px; 
+   border-radius: 16px; 
+   border: 1px solid rgba(255,255,255,0.1); 
+   max-width: 420px; 
+ } 
+ 
+ .status-title { 
+   font-size: 18px; 
+   margin-bottom: 10px; 
+ } 
+ 
+ .badge { 
+   display: inline-block; 
+   padding: 4px 10px; 
+   border-radius: 20px; 
+   font-size: 12px; 
+   margin-bottom: 10px; 
+ } 
+ 
+ /* Service rows */ 
+ .service { 
+   display: flex; 
+   justify-content: space-between; 
+   margin-top: 8px; 
+   padding: 6px 0; 
+ } 
+ 
+ .dot { 
+   width: 10px; 
+   height: 10px; 
+   border-radius: 50%; 
+   display: inline-block; 
+ } 
+ 
+ /* Colors */ 
+ .green { background: #2ecc71; } 
+ .orange { background: #f39c12; } 
+ .red { background: #e74c3c; } 
+ 
+ </style> 
  </head> 
  
  <body> 
  
-  <!-- Sidebar --> 
-  <div class="sidebar"> 
-    <h2>FinDash</h2> 
-    <a href="#" class="nav-link active" data-target="dashboard">Dashboard</a> 
-    <a href="#" class="nav-link" data-target="accounts">Accounts</a> 
-    <a href="#" class="nav-link" data-target="transactions">Transactions</a> 
-    <a href="#" class="nav-link" data-target="reports">Reports</a> 
-  </div> 
+ <div class="dashboard"> 
+ 
+   <!-- Sidebar --> 
+   <div class="sidebar"> 
+     <h2>Fintech Admin</h2> 
+     <div class="nav-item">Dashboard</div> 
+     <div class="nav-item">Accounts</div> 
+     <div class="nav-item">Transactions</div> 
+     <div class="nav-item">System Health</div> 
+   </div> 
+ 
+   <!-- Main --> 
+   <div class="main"> 
+ 
+     <!-- Top summary cards --> 
+     <div class="cards"> 
+       <div class="card"> 
+         <h3>Total Users</h3> 
+         <p>1,248</p> 
+       </div> 
+ 
+       <div class="card"> 
+         <h3>Transactions</h3> 
+         <p>$98,430</p> 
+       </div> 
+ 
+       <div class="card"> 
+         <h3>System Uptime</h3> 
+         <p id="uptime">Loading...</p> 
+       </div> 
+     </div> 
+ 
+     <!-- Status Widget --> 
+     <div class="status-box"> 
+ 
+       <div class="status-title">System Status</div> 
+ 
+       <div id="overall" class="badge">Loading...</div> 
+ 
+       <div class="service"> 
+         <span>Database</span> 
+         <span><span id="dbDot" class="dot"></span> <span id="dbText"></span></span> 
+       </div> 
+ 
+       <div class="service"> 
+         <span>API</span> 
+         <span><span id="apiDot" class="dot"></span> <span id="apiText"></span></span> 
+       </div> 
+ 
+       <div class="service"> 
+         <span>Auth Service</span> 
+         <span><span id="authDot" class="dot"></span> <span id="authText"></span></span> 
+       </div> 
+ 
+       <p style="font-size:12px;opacity:0.6;margin-top:10px;"> 
+         Last update: <span id="time"></span> 
+       </p> 
+ 
+     </div> 
+ 
+   </div> 
+ </div> 
+ 
+ <script> 
+ 
+ let uptimeSeconds = 1240;
 
-  <!-- Main --> 
-  <div class="main"> 
-
-    <!-- Dashboard Section -->
-    <div id="dashboard" class="content-section active">
-      <div class="header"> 
-        <h1>Financial Case Study Dashboard</h1> 
-        <p>Client Overview & Authorization Flow (UI Concept)</p> 
-      </div> 
-
-      <!-- Cards --> 
-      <div class="cards"> 
-
-        <div class="card"> 
-          <h3>Client Name</h3> 
-          <p><strong>MRS Martina Hunttner</strong></p> 
-        </div> 
-
-        <div class="card"> 
-          <h3>Legal Representative</h3> 
-          <p>Lawyer of James Andrew</p> 
-        </div> 
-
-        <div class="card"> 
-          <h3>Primary Account (Sample)</h3> 
-          <p class="amount">$698,000</p> 
-          <span class="status success">Active</span> 
-        </div> 
-
-        <div class="card"> 
-          <h3>Authorized Amount</h3> 
-          <p class="amount">$170,000</p> 
-          <span class="status success">Pending Authorization</span> 
-        </div> 
-
-      </div> 
-
-      <!-- Location Information -->
-        <div class="section">
-          <h2>Location Details</h2>
-          <div class="card">
-            <h3>Registered Office</h3>
-            <div class="location-details">
-              <p><strong>Address:</strong> Taubenstraße 7-9, 10117 Berlin, Germany</p>
-              <p><strong>Latitude:</strong> 52.5135° N</p>
-              <p><strong>Longitude:</strong> 13.3888° E</p>
-            </div>
-            <div class="map-container">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.947234250284!2d13.38622511580663!3d52.5135000798124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c636f87537%3A0x6d64949a2a7a407a!2sTaubenstra%C3%9Fe%207-9%2C%2010117%20Berlin%2C%20Germany!5e0!3m2!1sen!2sus!4v1650630000000!5m2!1sen!2sus" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- System Initialization -->
-        <div class="section">
-          <h2>Backend Status</h2>
-          <div class="card">
-            <h3>Database Initialization</h3>
-            <div class="sql-code">
-              SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";<br>
-              START TRANSACTION;<br>
-              SET time_zone = "+00:00";
-            </div>
-            <div class="explanation">
-              <strong>Simple meaning:</strong> The database is setting rules before it starts working and initializing a transaction (like "begin operation").
-            </div>
-          </div>
-        </div>
-
-      <!-- Notes --> 
-      <div class="section"> 
-        <h2>Case Note</h2> 
-        <div class="note"> 
-          This interface is a fictional fintech dashboard created for portfolio and UI demonstration purposes. 
-          It illustrates how financial workflows and client authorization processes may be visualized in a modern system. 
-          No real transactions or banking actions are performed. 
-        </div> 
-      </div> 
-    </div>
-
-    <!-- Accounts Section --> 
-    <div id="accounts" class="content-section">
-      <div class="header">
-        <h1>Account Options</h1>
-        <p>Manage and authorize external banking services.</p>
-      </div>
-
-      <div class="cards"> 
-        <div class="card"> 
-          <h3>Check24</h3> 
-          <p>Service currently unavailable due to technical issues.</p> 
-          <span class="status danger">Unavailable</span> 
-        </div> 
-
-        <div class="card"> 
-          <h3>Deutsche Kreditbank AG</h3> 
-          <p>Recommended alternative for account setup and authorization process.</p> 
-          <span class="status warning">Action Required</span> 
-        </div> 
-      </div> 
-    </div>
-
-    <!-- Transactions Section -->
-    <div id="transactions" class="content-section">
-      <div class="header">
-        <h1>Transactions</h1>
-        <p>Recent activity and history.</p>
-      </div>
-      <div class="card">
-        <p>No recent transactions to display for this case study.</p>
-      </div>
-    </div>
-
-    <!-- Reports Section -->
-    <div id="reports" class="content-section">
-      <div class="header">
-        <h1>Reports</h1>
-        <p>Financial analysis and case reports.</p>
-      </div>
-      <div class="card">
-        <p>Generating reports... (UI Demo)</p>
-      </div>
-    </div>
-
-  </div> 
-
-  <script>
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Update active link
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        
-        // Switch sections
-        const targetId = link.getAttribute('data-target');
-        document.querySelectorAll('.content-section').forEach(section => {
-          section.classList.remove('active');
-        });
-        document.getElementById(targetId).classList.add('active');
-      });
-    });
-  </script>
+ function loadStatus() { 
+   try { 
+     // Mocking the data since we don't have a real backend running
+     const data = {
+       uptime: uptimeSeconds += 4,
+       status: "operational",
+       services: {
+         database: "online",
+         api: "online"
+       },
+       timestamp: new Date().toISOString()
+     };
+ 
+     // Uptime 
+     document.getElementById("uptime").textContent = data.uptime + "s"; 
+ 
+     // Overall badge 
+     const overall = document.getElementById("overall"); 
+     overall.textContent = data.status.toUpperCase(); 
+ 
+     if (data.status === "operational") { 
+       overall.style.background = "#1e7e34"; 
+     } else { 
+       overall.style.background = "#b9770e"; 
+     } 
+ 
+     // Services mapping 
+     setService("db", data.services.database); 
+     setService("api", data.services.api); 
+     setService("auth", Math.random() > 0.1 ? "online" : "degraded"); 
+ 
+     document.getElementById("time").textContent = 
+       new Date(data.timestamp).toLocaleTimeString(); 
+ 
+   } catch (e) { 
+     document.getElementById("overall").textContent = "OFFLINE"; 
+     document.getElementById("overall").style.background = "#c0392b"; 
+   } 
+ } 
+ 
+ function setService(prefix, status) { 
+   const dot = document.getElementById(prefix + "Dot"); 
+   const text = document.getElementById(prefix + "Text"); 
+ 
+   text.textContent = status; 
+ 
+   if (status === "online") { 
+     dot.className = "dot green"; 
+   } else if (status === "degraded") { 
+     dot.className = "dot orange"; 
+   } else { 
+     dot.className = "dot red"; 
+   } 
+ } 
+ 
+ loadStatus(); 
+ setInterval(loadStatus, 4000); 
+ 
+ </script> 
  
  </body> 
  </html>
