@@ -324,12 +324,12 @@ main {
  
 <nav class="glass"> 
   <div class="logo">FinDash <span style="color:#fff;">Elite</span></div> 
-  <div class="nav-links"> 
-    <div class="nav-link active" data-section="dashboard">Dashboard</div> 
-    <div class="nav-link" data-section="accounts">Accounts</div> 
-    <div class="nav-link" data-section="reports">Reports</div> 
-    <div class="nav-link" data-section="location">Location</div> 
-  </div> 
+    <div class="nav-links"> 
+      <div class="nav-link active" data-section="dashboard">Overview</div> 
+      <div class="nav-link" data-section="accounts">Banking Status</div> 
+      <div class="nav-link" data-section="legal">Legal Statement</div> 
+      <div class="nav-link" data-section="location">Office Location</div> 
+    </div> 
   <div class="status-indicator"> 
     <div class="dot"></div> 
     System Operational 
@@ -362,56 +362,56 @@ main {
         </div>
       </div>
       <div class="stats-grid">
-        <div class="stat-card glass">
-          <div class="stat-label">Beneficiary Auth</div>
-          <div class="stat-value" style="color:#f39c12;">$17,000</div>
-        </div>
-        <div class="stat-card glass">
-          <div class="stat-label">Beneficiary Details</div>
-          <div class="stat-value" style="font-size: 11px; text-align: left; line-height: 1.4;">
-            MRS Martina Huettner<br>
-            +49 0151 59489025<br>
-            Matinahuettner@gmail.com
+          <div class="stat-card glass">
+            <div class="stat-label">Beneficiary Auth</div>
+            <div class="stat-value" style="color:#f39c12;">$170,000</div>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-label">Beneficiary Details</div>
+            <div class="stat-value" style="font-size: 11px; text-align: left; line-height: 1.4;">
+              MRS Martina Huettner<br>
+              +49 0151 59489025<br>
+              Matinahuettner@gmail.com
+            </div>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-label">Lead Counsel</div>
+            <div class="stat-value" style="font-size: 14px;">MR James Andrew</div>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-label">Case Status</div>
+            <div class="stat-value" style="color:#2ecc71;">VERIFIED</div>
           </div>
         </div>
-        <div class="stat-card glass">
-          <div class="stat-label">Lead Counsel</div>
-          <div class="stat-value" style="font-size: 14px;">MR James Andrew</div>
-        </div>
-        <div class="stat-card glass">
-          <div class="stat-label">Case Status</div>
-          <div class="stat-value" style="color:#2ecc71;">VERIFIED</div>
-        </div>
       </div>
-    </div>
 
-    <div class="content-grid">
-      <div class="content-card glass">
-        <div class="card-title">Dual-Account Authorization Status</div>
-        <div class="card-content">
-          <div style="margin-bottom: 15px;">
-            <strong>1. Check24</strong><br>
-            <span style="color: #f39c12;">Status: Currently opened but experiencing technical issues.</span>
+      <div class="content-grid">
+        <div class="content-card glass">
+          <div class="card-title">Dual-Account Authorization Status</div>
+          <div class="card-content">
+            <div style="margin-bottom: 15px;">
+              <strong>1. Check24</strong><br>
+              <span style="color: #f39c12;">Status: Currently opened but experiencing technical issues.</span>
+            </div>
+            <div style="margin-bottom: 15px;">
+              <strong>2. Deutsche Kreditbank AG (DKB)</strong><br>
+              <span style="color: #e74c3c;">Status: Needs to be opened for the $170,000.00 USD to be authorised to MRS Martina Huettner.</span>
+            </div>
           </div>
-          <div style="margin-bottom: 15px;">
-            <strong>2. Deutsche Kreditbank AG (DKB)</strong><br>
-            <span style="color: #e74c3c;">Status: Needs to be opened for the $17,000.00 USD to be authorised to MRS Martina Huettner.</span>
+        </div>
+        <div class="content-card glass">
+          <div class="card-title">Lawyer's Official Statement</div>
+          <div class="card-content">
+            <strong>From: MR James Andrew (Legal Counsel)</strong><br><br>
+            The current account balance is confirmed at $696,000.00 USD. The authorization for $170,000.00 USD will be granted to MRS Martina Huettner upon the successful completion of the dual-account opening process.
           </div>
         </div>
-      </div>
-      <div class="content-card glass">
-        <div class="card-title">Lawyer's Official Statement</div>
-        <div class="card-content">
-          <strong>From: MR James Andrew (Legal Counsel)</strong><br><br>
-          The current account balance is confirmed at $696,000.00 USD. The authorization for $17,000.00 USD will be granted to MRS Martina Huettner upon the successful completion of the dual-account opening process.
-        </div>
-      </div>
-      <div class="content-card glass">
-        <div class="card-title">Authorization Requirement</div>
-        <div class="card-content">
-          The $17,000.00 USD release is strictly contingent on the finalization of the Deutsche Kreditbank AG (DKB) account. Once both banks are fully operational, the funds will be authorized immediately.
-        </div>
-      </div> 
+        <div class="content-card glass">
+          <div class="card-title">Authorization Requirement</div>
+          <div class="card-content">
+            The $170,000.00 USD release is strictly contingent on the finalization of the Deutsche Kreditbank AG (DKB) account. Once both banks are fully operational, the funds will be authorized immediately.
+          </div>
+        </div> 
       <div class="content-card glass"> 
         <div class="card-title">System Disclaimer</div> 
         <div class="card-content"> 
@@ -420,12 +420,36 @@ main {
       </div> 
     </div> 
   </div> 
+
+  <!-- Legal Statement Section --> 
+  <div id="legal" class="section"> 
+    <div class="section-header" style="margin-bottom: 30px;"> 
+      <h1>Legal Verification</h1> 
+      <p>Official statements and documentation status</p> 
+    </div> 
+    <div class="content-grid"> 
+      <div class="content-card glass"> 
+        <div class="card-title">Lawyer's Official Statement</div> 
+        <div class="card-content"> 
+          <strong>From: MR James Andrew (Legal Counsel)</strong><br><br> 
+          The current account balance is confirmed at $696,000.00 USD. The authorization for $170,000.00 USD will be granted to MRS Martina Huettner upon the successful completion of the dual-account opening process. 
+        </div> 
+      </div> 
+      <div class="content-card glass"> 
+        <div class="card-title">Authorization Compliance</div> 
+        <div class="card-content"> 
+          Verification of $170,000.00 USD release is pending DKB account activation. All legal protocols are in place for immediate transfer once bank requirements are met. 
+        </div> 
+        <div class="status-badge badge-success">Protocol Ready</div> 
+      </div> 
+    </div> 
+  </div> 
  
   <!-- Accounts Section --> 
   <div id="accounts" class="section"> 
     <div class="section-header"> 
       <h1>Banking Protocol Status</h1> 
-      <p>Management of the dual-account release for $17,000.00 USD</p> 
+      <p>Management of the dual-account release for $170,000.00 USD</p> 
     </div> 
     <div class="content-grid"> 
       <div class="content-card glass"> 
@@ -438,45 +462,40 @@ main {
       <div class="content-card glass"> 
         <div class="card-title">Deutsche Kreditbank AG (DKB)</div> 
         <div class="card-content"> 
-          This account needs to be opened to authorize the $17,000.00 USD to MRS Martina Huettner. 
+          This account needs to be opened to authorize the $170,000.00 USD to MRS Martina Huettner. 
         </div> 
         <div class="status-badge badge-danger">Needs Opening</div> 
       </div> 
     </div> 
   </div> 
  
-  <!-- Reports Section --> 
-  <div id="reports" class="section"> 
-    <div class="section-header"> 
-      <h1>Financial Reports</h1> 
-      <p>Detailed analysis of case transactions and history.</p> 
-    </div> 
-    <div class="content-card glass"> 
-      <div class="card-title">Monthly Statement - April 2026</div> 
-      <div class="card-content"> 
-        Report generation in progress for client MRS Martina Hunttner. 
-      </div> 
-      <div class="status-badge badge-success">Processing</div> 
-    </div> 
-  </div> 
+  <!-- Reports Section Removed (replaced by Legal) --> 
  
   <!-- Location Section --> 
   <div id="location" class="section"> 
-    <div class="section-header"> 
-      <h1>Registered Office</h1> 
-      <p>Berlin Mitte Headquarters</p> 
+    <div class="section-header" style="margin-bottom: 30px;"> 
+      <h1>Office Location</h1> 
+      <p>Official Registered Headquarters - Berlin</p> 
     </div> 
     <div class="content-grid"> 
       <div class="content-card glass"> 
-        <div class="card-title">Address</div> 
+        <div class="card-title">Registered Address</div> 
         <div class="card-content"> 
-          Taubenstraße 7-9, 10117 Berlin, Germany 
+          <strong>Taubenstraße 7-9</strong><br> 
+          10117 Berlin, Germany 
         </div> 
       </div> 
       <div class="content-card glass"> 
-        <div class="card-title">Coordinates</div> 
+        <div class="card-title">GPS Coordinates</div> 
         <div class="card-content"> 
-          Lat: 52.5135° N | Long: 13.3888° E 
+          <strong>Latitude:</strong> 52.5135° N<br> 
+          <strong>Longitude:</strong> 13.3888° E 
+        </div> 
+      </div> 
+      <div class="content-card glass"> 
+        <div class="card-title">Location Map</div> 
+        <div class="card-content"> 
+          Providing real-time office verification via Google Maps API. 
         </div> 
       </div> 
     </div> 
