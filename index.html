@@ -829,6 +829,41 @@ main {
         </iframe> 
       </div> 
     </div>
+
+    <div class="info-group">
+      <div class="group-header">Location Reference & QR Code</div>
+      <div class="content-card glass" style="padding: 30px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+          <div style="text-align: center;">
+            <img 
+              src="https://maps.googleapis.com/maps/api/staticmap?center=52.5135,13.3888&zoom=16&size=500x350&maptype=roadmap&markers=color:red%7C52.5135,13.3888" 
+              alt="Bank Location Map - Taubenstraße 7-9 Berlin"
+              style="width: 100%; border-radius: 12px; border: 1px solid var(--card-border);"
+              onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:200px;background:var(--card-bg);border-radius:12px;color:var(--text-secondary);\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><path d=\'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\'></path><circle cx=\'12\' cy=\'10\' r=\'3\'></circle></svg></div>';"
+            />
+            <p style="margin-top: 15px; color: var(--text-secondary); font-size: 14px;">
+              <strong>Taubenstraße 7-9</strong><br>
+              10117 Berlin, Germany
+            </p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <h4 style="color: var(--accent); font-size: 20px;">Mobile Navigation</h4>
+            <p style="color: var(--text-secondary); font-size: 14px;">
+              Scan the QR code to open the location directly in Google Maps on your mobile device for turn-by-turn directions.
+            </p>
+            <div style="background: white; padding: 15px; border-radius: 12px; display: inline-block; width: fit-content;">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps/place/Taubenstra%C3%9Fe+7-9,+10117+Berlin,+Germany/@52.5135,13.3888,17z" alt="Location QR Code" width="150" height="150" />
+            </div>
+            <a href="https://www.google.com/maps/place/Taubenstra%C3%9Fe+7-9,+10117+Berlin,+Germany/@52.5135,13.3888,17z" 
+               target="_blank" 
+               class="btn btn-primary" 
+               style="text-decoration: none; width: fit-content;">
+              Open in Google Maps →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div> 
  
 </main> 
